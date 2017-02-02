@@ -29,6 +29,32 @@
                 <artifactId>maven-release-plugin</artifactId>
                  <version>2.5.3</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                    </manifest>
+                    <manifestEntries>
+                        <Build-Time>${maven.build.timestamp}</Build-Time>  
+                    </manifestEntries>
+                    <manifestSections>
+                    <manifestSection>
+                        <name>${build.manifest.section}</name>
+                        <manifestEntries>
+                            <Implementation-Title>${project.name}</Implementation-Title>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                            <Implementation-Build-Number>${build.number}</Implementation-Build-Number>
+                            <Implementation-SCM-Revision>${build.revision}</Implementation-SCM-Revision>
+                        </manifestEntries>
+                    </manifestSection>
+                    </manifestSections>
+                </archive>
+            </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -43,5 +69,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <build.manifest.section>Build Details</build.manifest.section>
+        <build.default>1</build.default>
+        <build.number>${build.default}</build.number>
+        <build.revision>${build.default}</build.revision>
     </properties>
 </project>
