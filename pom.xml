@@ -15,7 +15,6 @@
 	<connection>scm:git:git@github.com:jokoder/simple-maven-project-with-tests.git</connection>
 	<url>scm:git:git@github.com:jokoder/simple-maven-project-with-tests.git</url>
 	<developerConnection>scm:git:git@github.com:jokoder/simple-maven-project-with-tests.git</developerConnection>
-    <tag>HEAD</tag>
   </scm>
     <build>
         <plugins>
