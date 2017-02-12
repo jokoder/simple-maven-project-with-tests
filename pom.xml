@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>test</groupId>
 	<artifactId>simple-maven-project-with-tests</artifactId>
@@ -50,12 +51,14 @@
 					<!-- Prevents deployments from dev workstations so that they can be 
 						done by a CI server -->
 					<noDeploy>true</noDeploy>
+					<keepBranch>true</keepBranch>
 					<flowInitContext>
-						<!-- You can customize your development branch name. Why? Because it's 
-							faster to type 'git push origin dvlp' than 'git push origin develop' ;-) -->
-						<developBranchName>dvlp</developBranchName>
-						<!-- You can also customize your tag prefixes -->
-						<versionTagPrefix>rev-</versionTagPrefix>
+						<masterBranchName>master</masterBranchName>
+						<developBranchName>development</developBranchName>
+						<featureBranchPrefix>feature-</featureBranchPrefix>
+						<releaseBranchPrefix>release-</releaseBranchPrefix>
+						<hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+						<versionTagPrefix>MSP-</versionTagPrefix>
 					</flowInitContext>
 				</configuration>
 			</plugin>
